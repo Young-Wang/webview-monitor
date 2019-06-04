@@ -1,0 +1,67 @@
+<html>
+  <head></head>
+  <body>
+    <div>Hello world</div>
+    <div class="allBox" id="app" v-cloak>
+      <div class="allPart">
+        <div class="topBack">
+          <div class="title">您好，欢迎绑定！</div>
+        </div>
+        <div class="bindAccount">
+          <div class="choose">
+            <div class="left leftInfo" @click="phoneQuery">手机号验证</div>
+            <div class="right rightInfo" @click="passwordQuery">密码验证</div>
+          </div>
+          <div class="formTips" v-show="bindType">
+            <div class="userNoInfo">
+              <input
+                id="userbianhao"
+                class="userNo"
+                v-model="userNo"
+                type="text"
+                placeholder="输入客户编号"
+              />
+            </div>
+            <div class="userPasswordInfo">
+              <input
+                id="userMiMa"
+                class="userPassword"
+                v-model="userPassword"
+                type="text"
+                placeholder="输入账户密码"
+              />
+            </div>
+            <div class="phoneInputInfo">
+              <input
+                autofocus="autofocus"
+                id="userPhone"
+                v-model="userPhone"
+                class="phoneInput"
+                type="number"
+                placeholder="点击输入订阅手机号"
+              />
+            </div>
+            <div class="btnQuery" @click="gitPullOne">
+              绑定
+            </div>
+          </div>
+            
+            <div class="btnQuery" @click="gitPullTwo">
+              查询
+            </div>
+          </div>
+        </div>
+        <div class="tips">
+          <div class="tipsTitle">
+            温馨提示：
+          </div>
+          <div class="content">
+            客户编号是每个客户独有的档案编号。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./lib/vue/vue.min.js"></script>
+  <script type="text/javascript" src="/monitor.min.js"></script></body>
+</html>
