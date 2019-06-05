@@ -152,7 +152,7 @@ pagestay事件特有字段
 
 elementfocus、elementblur、elementclick、elementinput事件特有字段
 {
-  event: Event, // HTML Dom事件对象
+  event: Event, // HTML DOM事件对象
   time: number, // 事件触发时间
 }
 ```
