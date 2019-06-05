@@ -13,44 +13,57 @@
         // 实例化Monitor，注册pagestay(页面停留事件)、elementinput(输入事件)、elementclick(点击事件)三个事件
         // 配置pagestay事件时间间隔为3秒
         var monitor = new Monitor({
-          events: [
-            "pageload",
-            "pagestay",
-            "elementfocus",
-            "elementblur",
-            "elementinput",
-            "elementclick"
-          ],
+          events: ["pagestay", "elementinput", "elementclick"],
           pagestay: {
             timeout: 3000
           }
         });
 
-        monitor.on("pageload", function(options) {
-          console.log("load", options);
-        });
-
         // 监听pagestay事件，每隔三秒触发
         monitor.on("pagestay", function(options) {
           console.log("stay", options);
-        });
-
-        monitor.on("elementfocus", function(options) {
-          console.log("focus", options);
-        });
-
-        monitor.on("elementblur", function(options) {
-          console.log("blur", options);
+          /**
+            封装后端需要的数据，发送到后端
+            var data = Object.assign({}, options, {
+              event: "pagestay",
+              platform: 微信公众号平台,
+              userId: 用户ID,
+              ...
+            });
+            $.ajax({ method: "POST", url: "/event", data: data })
+            */
         });
 
         // 监听elementiput事件，输入框输入的时候触发
         monitor.on("elementinput", function(options) {
           console.log("input", options);
+          /**
+            获取输入框的属性
+            var input = options.event.target;
+            var name = input.dataset.name;
+            var data = Object.assign({}, options, {
+              event: "elementinput",
+              ...
+            });
+            $.ajax({ method: "POST", url: "/event", data: data })
+            */
         });
 
         // 监听elementclick事件，元素点击的时候触发
         monitor.on("elementclick", function(options) {
           console.log("click", options);
+          /**
+            过滤按钮
+            var target = options.event.target;
+            if (target.dataset.type === "button") {
+              var name = target.dataset.name;
+              var data = Object.assign({}, options, {
+                event: "elementclick",
+                ...
+              });
+              $.ajax({ method: "POST", url: "/event", data: data })
+            }
+            */
         });
       })();
     </script>

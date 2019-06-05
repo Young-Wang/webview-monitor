@@ -159,6 +159,7 @@ elementfocus、elementblur、elementclick、elementinput事件特有字段
 
 ## 其他
 
+- 使用示例 [index.htm](./index.html)
 - 统计页面停留时间可以监听 `pagestay` 事件，根据用户 `ID` 和 `startTime` 来标识一次访问记录，最大的 `duration` 则为页面停留时间
 - 按钮元素的点击统计需要在 `elementclick` 事件处理函数中进行过滤
 - 用户 ID，公众号等值可以在事件处理函数中封装
