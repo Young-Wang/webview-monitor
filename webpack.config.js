@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: "./src/index.js",
   devtool: "inline-source-map",
   module: {
     rules: [
@@ -24,12 +24,10 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin([
-      { from: "src" },
-    ], {
-        ignore: ["index.ts", "index.html"]
-      }),
+      { from: "public" },
+    ]),
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: "./public/index.html"
     })
   ],
   output: {
